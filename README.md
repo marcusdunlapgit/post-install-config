@@ -1,55 +1,143 @@
 <p align="center">
-<img src="https://i.imgur.com/Clzj7Xs.png" alt="osTicket logo"/>
+  <img src="https://i.imgur.com/Clzj7Xs.png" alt="osTicket logo"/>
 </p>
 
-<h1>osTicket - Post-Install Configuration</h1>
-This tutorial outlines the post-install configuration of the open-source help desk ticketing system osTicket.<br />
+## 🔧 Post-Installation Configuration
 
+After installing osTicket, follow these configuration steps to set up roles, departments, teams, and permissions for agents and users.
 
-<h2>Video Demonstration</h2>
+---
 
-- ### [YouTube: How To Configure osTicket, post-installation](https://www.youtube.com)
+### 🔹 Admin & End-User URLs
 
-<h2>Environments and Technologies Used</h2>
+- **Admin/Analyst Login Page:**  
+  [http://localhost/osTicket/scp/login.php](http://localhost/osTicket/scp/login.php)
 
-- Microsoft Azure (Virtual Machines/Compute)
-- Remote Desktop
-- Internet Information Services (IIS)
+<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Admin Login Page Screenshot"/>
 
-<h2>Operating Systems Used </h2>
+- **End User Portal URL:**  
+  [http://localhost/osTicket](http://localhost/osTicket)
 
-- Windows 10</b> (21H2)
+<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="End User Portal Screenshot"/>
 
-<h2>Post-Install Configuration Objectives</h2>
+---
 
-- Item 1
-- Item 2
-- Item 3
-- Item 4
-- Item 5
+### 🔹 Acknowledge: Agent Panel vs Admin Panel
 
-<h2>Configuration Steps</h2>
+- **Agent Panel**: Used for ticket handling, responses, and internal notes.  
+- **Admin Panel**: Used for managing system settings, roles, teams, departments, and agents.
 
-<p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-</p>
-<p>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-</p>
-<br />
+<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Agent vs Admin Panel Screenshot"/>
 
-<p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-</p>
-<p>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-</p>
-<br />
+---
 
-<p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-</p>
-<p>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-</p>
-<br />
+### 🔹 Configure Roles (Group-based Permissions)
+
+**Path:** `Admin Panel → Agents → Roles`
+
+- Example Role: `Supreme Admin` (Full permissions)
+
+<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Configure Roles Screenshot"/>
+
+---
+
+### 🔹 Configure Departments (Ticket Visibility Scope)
+
+**Path:** `Admin Panel → Agents → Departments`
+
+- Examples:
+  - `Help Desk`
+  - `SysAdmins`
+  - `Networking`
+
+<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Departments Configuration Screenshot"/>
+
+---
+
+### 🔹 Configure Teams (Cross-Department Collaboration)
+
+**Path:** `Admin Panel → Agents → Teams`
+
+- Example Team: `Online Banking` (includes agents from multiple departments)
+
+<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Teams Configuration Screenshot"/>
+
+---
+
+### 🔹 Allow or Restrict Ticket Creation for Unregistered Users
+
+**Path:** `Admin Panel → Settings → User Settings`
+
+- ✅ **Uncheck**: *Unregistered users can create tickets*  
+- ✅ Enable: *Registration Required*
+
+<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="User Settings Screenshot"/>
+
+---
+
+### 🔹 Configure Agents (Internal Staff)
+
+**Path:** `Admin Panel → Agents → Add New`
+
+- **Jane** (Department: `SysAdmins`)  
+- **John** (Department: `Support`)
+
+<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Add Agent Screenshot"/>
+
+---
+
+### 🔹 Configure Users (Customers / External Users)
+
+**Path:** `Agent Panel → Users → Add New`
+
+- **Karen**  
+- **Ken**
+
+<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Add Users Screenshot"/>
+
+---
+
+### 🔹 Configure SLA (Service Level Agreements)
+
+**Path:** `Admin Panel → Manage → SLA`
+
+- **Sev-A**  
+  - Grace Period: `1 hour`  
+  - Schedule: `24/7`
+
+- **Sev-B**  
+  - Grace Period: `4 hours`  
+  - Schedule: `24/7`
+
+- **Sev-C**  
+  - Grace Period: `8 hours`  
+  - Schedule: `Business Hours`
+
+<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="SLA Configuration Screenshot"/>
+
+---
+
+### 🔹 Configure Help Topics
+
+**Path:** `Admin Panel → Manage → Help Topics`
+
+- **Business Critical Outage**  
+- **Personal Computer Issues**  
+- **Equipment Request**
+- **Password Reset**  
+- **Other**
+
+<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Help Topics Configuration Screenshot"/>
+
+---
+
+## 🏁 Final Notes
+
+Your osTicket system is now configured and operational. Be sure to test workflows from both the end-user and admin perspectives to ensure proper routing, SLA tracking, and role visibility.
+
+---
+
+## 📝 Author
+
+**Marcus Dunlap**  
+📧 [me@marcusdunlap.tech](mailto:me@marcusdunlap.tech)
